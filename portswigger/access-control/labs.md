@@ -24,3 +24,9 @@ First I got to the Login screen and use the user wiener:peter, after in the chan
 
 Objective: Delete the user **Carlos**
 For this lab, again I will use Burp Suite. Got again to change email screen and send the proxy request and send the proxy response to the repeater, where I change the JSON passed to the server to change my roleid=2, send again the requisition on Proxy, disable the interceptor and reload the page, after that I can ease deleter Carlos!
+
+# New Tools
+
+**Wapiti** Can be used in roder to do a sweeep on the url using the command wapiti -u [url];
+**wappanalyzer** as a brownser extension help to do the recognition of a webpage;
+**cookie manager** Another extension to get cookies from webpages - As example in Lab3 you cna just get the profile URL and change the `Admin` cookie to true
