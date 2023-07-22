@@ -8,9 +8,18 @@ XSS occurs when attackers inject malicious scripts into web pages that are viewe
 
 ## Lab 1. Reflected XSS into HTML context without nothing encoded
 
-**Objective:** Call a alert function
+**Objective:** Call a `alert` function
 
 1. The page got a search field;
 2. In this search field we can pass a HTML tag `<script></script>`;
 3. As your objetive is really simples, just use the alert function: `<script>alert('Have you heard about the high elfs?')</script>`.
-   ß
+
+**\*Important** someone with bad intetions can send this URLs with XSS scripts (hidden) as a form of social engineering!
+
+## Lab 2. Stored XSS into HTML context without nothing encoded
+
+**Objective:** Call the `alert` function when a post is viewed
+
+1. Select a post;
+2. We got a comment section, so is the perfect palce to store the script;
+3. Use the tag `<script>alert('Have you heard about the high elfs?')</script>` as comment with a random email and name.
