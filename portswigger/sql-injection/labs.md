@@ -1,8 +1,10 @@
-# SQL Injection - A Cybersecurity Study
+# SQLi Labs and Tools
 
-## Introduction
+## SQL Injection (SQLi) - A Critical Cybersecurity Threat
 
-SQL injection is a common and critical vulnerability found in web applications that interact with a database. It occurs when untrusted user input is improperly handled and allows an attacker to execute malicious SQL queries, potentially gaining unauthorized access to the database or compromising sensitive data. This GitHub repository serves as a documentation of various SQL injection techniques tested on PortSwigger Web Security Academy.
+SQL Injection (SQLi) is a severe cybersecurity vulnerability that poses a significant risk to web applications and databases worldwide. It is one of the most common and dangerous attack techniques employed by malicious actors to compromise data integrity, confidentiality, and availability. This GitHub repository aims to provide a comprehensive understanding of SQLi, its various manifestations, and effective mitigation strategies.
+
+SQLi occurs when an attacker maliciously inserts malicious SQL code into input fields or parameters of a web application. This code then gets executed by the application's underlying database, allowing the attacker to gain unauthorized access and manipulate the database contents. The consequences of a successful SQLi attack can be devastating, ranging from unauthorized data disclosure to complete system compromise.
 
 ## SQL Injection Allowing Login Bypass
 

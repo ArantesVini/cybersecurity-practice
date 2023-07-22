@@ -1,4 +1,10 @@
-# Access Control Labs
+# Access Control Labs and Studies
+
+## Access Control - An OWASP Top Ten Web Application Security Risk
+
+Access Control is a fundamental cybersecurity concept that plays a crucial role in safeguarding digital assets and protecting sensitive information from unauthorized access and misuse. This GitHub repository aims to provide an in-depth exploration of access control mechanisms, their importance, and best practices to implement robust access control strategies for various systems and applications.
+
+Improper access control can lead to unauthorized access to sensitive functionality, data, or resources within a web application. Attackers can exploit these vulnerabilities to escalate privileges, gain unauthorized access to other users' accounts, or manipulate data and functionalities beyond their intended scope. As a result, access control misconfigurations pose a significant threat to the confidentiality, integrity, and availability of web applications.
 
 ## About My System
 
