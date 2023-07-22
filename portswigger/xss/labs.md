@@ -23,3 +23,17 @@ XSS occurs when attackers inject malicious scripts into web pages that are viewe
 1. Select a post;
 2. We got a comment section, so is the perfect palce to store the script;
 3. Use the tag `<script>alert('Have you heard about the high elfs?')</script>` as comment with a random email and name.
+
+**Remember** this is a example of **XSS Persist**, we can share the page with the post where I perform the XSS and another user on another machine also will get the alert.
+
+## Lab 3. DOM XSS in `document.write` sink using source `location.search`
+
+**Objective:** Call the alert function
+
+1. After you try to search something and inspect the DOM you see a `<img>` tag that search for the input;
+2. You can break this tag by closing it before in the search field and comment the end;
+3. Between the closing and the comment you can add a `<script>` tag to call the alert function;
+4. Simply by inputing `>  <script>alert(1)</script>//`
+
+**Note** DOM XSS only execute the script on user machine, not in the server, who does not receive anything.
+**Warning** When a site applies encoding a person with bad intentions can use ` &lt; script &gt;` where `&lt` stands for `<` and `&gt` for `>`.
