@@ -14,7 +14,7 @@ First of all identify the target and ip Adress / Adresses, employees emails /pho
 
 ## Tools for information gathering
 
-### How identify your target and get its IP adress
+**ping, nslookup, whois, whatweb**
 
 For this we can do activly or passivly.
 
@@ -35,3 +35,16 @@ Another powerful tool to do this is **whois**, already installed on kali linux.
 3. WHOIS
 
 Whois is run by the terminal by `whois [url]` and the output will got information like the person name and email, DNS server, domain information, phisical adress, and sometimes even the owner document.
+
+4. Whatweb
+
+First of all is important to tell that **whatweb** got a "stealthy" version that we can use in any site, thatj ust send one HTTP request, but got more aggressive modes that we can just use in pentest. To use simply type `whatweb [url]` this will use the default level of `--aggression`, 1 is the stealthy one, that send one http request.
+
+This version will already output to us the server, where it is, languages uses, cookies etc. With verbose mode `--verbose` or `-v` we will get a better version to read, also with plugin descriptions.
+
+We can also use whatweb to scan a network range, by `whatweb xxx.xxx.x.1-xxx.xxx.x.255` in example of a netmask to go from 1 to 255, the usual.
+
+By this we can perform a `--aggression=3` in my own net, if i got some page run on my network this will output even **password field**, in a pentest this could be used in a brute force attack.
+In a big range of network we can use `--no-errors` at the end to prevent the _No route to host_ error, of offline ip adress.
+
+## Gathering email from a company or domain
