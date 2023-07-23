@@ -48,3 +48,17 @@ By this we can perform a `--aggression=3` in my own net, if i got some page run 
 In a big range of network we can use `--no-errors` at the end to prevent the _No route to host_ error, of offline ip adress.
 
 ## Gathering email from a company or domain
+
+We can use this emails to send malicious programs to the people on the company or even in a bruteforce attack as username fields, like in the most of the companies.
+To check emails we can use two different options:
+
+1. **theHarvester**:
+   On terminal we can simple type `theHarvester` on terminal, to get information about a certain domain you can use `theHarvester -d [domain/url] -b [source, or all] -l [limit, default 500]`
+
+2. **hunter.io**:
+
+Basically to this you need to create a account, free or paid, free got limited results.
+
+3. Surprise!
+
+We can just code a tool like this in python!!! The tool is `email-scraper.py` on tools folder
