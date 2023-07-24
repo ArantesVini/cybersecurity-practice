@@ -19,3 +19,18 @@ So the client will send numereted packages and await for the server response, if
 ### UDP - User Datagram Protocol
 
 UDP works similiar to TCP but without the error check things, this make UDP a lot faster, beucase of that UDP is usually used by brodcasts and online games.
+
+## Building the vulnerable VMs
+
+To build it I will use [Metasploitable](https://information.rapid7.com/download-metasploitable-2017.html?LS=1631875&CS=web) from rapid. Metasploitable is free to use, but we must fill a form at the end of page in order to download it.
+
+We start the VM and use the `msfadmin:msfadmin` to login.
+
+## ARP
+
+ARP is a tool on kali linux to discorvering hosts on a network, arp must be run with sudo privileges always.
+To a host appearo in `sudo arp -a` we must first ping it. In my case my metasploitable VM is on port .3 so i ping like `ping xxx.xxx.x.3` and after `sudo arp -a` appears both my router and my VM. To avoid this a better option for tool is **Netdiscover**
+
+## Netdiscover
+
+Netdiscorver also need sudo privileges to run, simply `sudo netdiscorver` this will start to scanning all subnets and will find all avaliable hosts without need to ping it.
