@@ -1,4 +1,4 @@
-# Basic conecpts in Deffensive Security
+# Basic conecpts in Defensive Security
 
 ## DNS - Domain Name System
 
