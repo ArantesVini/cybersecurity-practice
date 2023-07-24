@@ -62,3 +62,7 @@ Basically to this you need to create a account, free or paid, free got limited r
 3. Surprise!
 
 We can just code a tool like this in python!!! The tool is `email-scraper.py` on tools folder
+
+## Tool for gathering username information - Sherlock
+
+Avaliable in (GitHub)[https://github.com/sherlock-project/sherlock] we can clone sherlock to your VM with `git clone` and after `python3 -m pip install -r requirements.txt` in sherlock folder.

@@ -1,25 +1,34 @@
-import argparse
-import re
-import requests
 from bs4 import BeautifulSoup
+import requests
+import requests.exceptions
+import urllib.parse
+from collections import deque
+import re
 
+user_url = str(input('[+] Enter Target URL To Scan: '))
+urls = deque([user_url])
 
-def scrape_emails(url, max_depth=100):
-    session = requests.Session()
-    urls = set([url])
-    scraped_urls = set()
-    emails = set()
-    depth = 0
+scraped_urls = set()
+emails = set()
 
-    while urls and depth < max_depth:
-        depth += 1
-        url = urls.pop()
+count = 0
+try:
+    while len(urls):
+        count += 1
+        if count == 100:
+            break
+        url = urls.popleft()
         scraped_urls.add(url)
 
+        parts = urllib.parse.urlsplit(url)
+        base_url = '{0.scheme}://{0.netloc}'.format(parts)
+
+        path = url[:url.rfind('/')+1] if '/' in parts.path else url
+
+        print('[%d] Processing %s' % (count, url))
         try:
-            response = session.get(url)
-            response.raise_for_status()
-        except (requests.exceptions.RequestException, ValueError):
+            response = requests.get(url)
+        except (requests.exceptions.MissingSchema, requests.exceptions.ConnectionError):
             continue
 
         new_emails = set(re.findall(
@@ -28,29 +37,16 @@ def scrape_emails(url, max_depth=100):
 
         soup = BeautifulSoup(response.text, features="lxml")
 
-        for link in soup.find_all('a', href=True):
-            link_url = link['href']
-            if link_url.startswith('mailto:'):
-                emails.add(link_url[7:])
-            elif link_url.startswith(('http://', 'https://')):
-                urls.add(link_url)
-            elif link_url.startswith('/'):
-                urls.add(url + link_url)
-            else:
-                urls.add(url + '/' + link_url)
+        for anchor in soup.find_all("a"):
+            link = anchor.attrs['href'] if 'href' in anchor.attrs else ''
+            if link.startswith('/'):
+                link = base_url + link
+            elif not link.startswith('http'):
+                link = path + link
+            if not link in urls and not link in scraped_urls:
+                urls.append(link)
+except KeyboardInterrupt:
+    print('[-] Closing!')
 
-    return emails
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description='Scrape emails from a website')
-    parser.add_argument('url', help='The URL to scrape')
-    parser.add_argument('--depth', type=int, default=100,
-                        help='The maximum depth to crawl')
-    args = parser.parse_args()
-
-    emails = scrape_emails(args.url, args.depth)
-
-    for email in emails:
-        print(email)
+for mail in emails:
+    print(mail)
