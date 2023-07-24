@@ -65,4 +65,4 @@ We can just code a tool like this in python!!! The tool is `email-scraper.py` on
 
 ## Tool for gathering username information - Sherlock
 
-Avaliable in [GitHub](https://github.com/sherlock-project/sherlock) we can clone sherlock to your VM with `git clone` and after `python3 -m pip install -r requirements.txt` in sherlock folder.
+Avaliable in [GitHub](https://github.com/sherlock-project/sherlock) we can clone sherlock to your VM with `git clone` and after `python3 -m pip install -r requirements.txt` in sherlock folder. For example after we use theHarvester to collect info we can use sherlock in a specific user, or group of users: `python3 sherlock.py [user or users]`.
