@@ -1,4 +1,4 @@
-## NMAP
+# NMAP
 
 Unlike all the other tools that sometimes we use or sometime not **nmap** is basically a must use tool for every pentest. Nmap is a _network mapper_, it is used to discorver hosts and services in a network by sending packets and analyze responses.
 Since I am running a metasploitable VM on my own network I just run `sudo netdiscover` in order to "figure" the IP of my target, then run nmap to scanning: `nmap [ip and subnet of my vm]`
