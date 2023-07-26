@@ -32,3 +32,12 @@ To a host appearo in `sudo arp -a` we must first ping it. In my case my metasplo
 ## Netdiscover
 
 Netdiscorver also need sudo privileges to run, simply `sudo netdiscover` this will start to scanning all subnets and will find all avaliable hosts without need to ping it.
+
+## Firewall / IDS
+
+Firewall is a network security system, that monitors network traffic and it is based on predertermined security rules.
+There two types of firewall **network firewalls** and **host-based firewalls**.
+
+1. Network firewalls: Filter the traffic between two or more networks;
+2. Host-based firewalls only filter traffic that is going in or out from **that** specific machine.
+   IDS stands for **Intrusion detection system**, a software application that monitors network for any malicious activy. By example, some Nmap aggressive scans can get caught by intrusion detection system.

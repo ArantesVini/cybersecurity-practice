@@ -40,5 +40,15 @@ We can even change the scanning intsinty with `sudo nmap -sV --version-intensity
 ## The A is for **Aggressive**
 
 You can pass _-A_ in the bash in order to enable some advanced feature of nmap. This enable OS and version discovering by default, without the need of-O and -sV. And also enable **nmap script scanning**.
+The ouput of `sudo nmap -A [target]` also includes scripts running in your target and more information about software versions.
+Remember: **-A** give us a lot of useful output, but takes a long time to run and it is **easly** detectable if your targe has some security measures.
 
-## NMAP Scripts
+## How bypass firewalls with NMAP
+
+If a service is protected by a firewall, nmap will tell us that port is **filtered**. In order to bypass this we can use different options:
+
+- `sudo nmap -f [target]` With -f (lower case f, upper case is for fast scan) it will use tiny IP packets, spliting the packets into eight bytes or less.
+
+- `sudo nmap -f -f [target]` it will split the packtets into 16 bytes per fragment. Be aware that **some programns will not handle well with this tiny packtes**, so both the options usually don't work;
+
+- `sudo nmap -D RND:[number of IPs] [target]` more focused in hidden your IP, the target IDS will report multiple IP addresses that scan them. RND generate random IPs, to best effect you can pass manually the IPs with `sudo nmap -D [Ip1,Ip2..,ME] [target]`alsu sopecifys the **ME** to use your IP too.
