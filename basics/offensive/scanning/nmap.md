@@ -52,3 +52,13 @@ If a service is protected by a firewall, nmap will tell us that port is **filter
 - `sudo nmap -f -f [target]` it will split the packtets into 16 bytes per fragment. Be aware that **some programns will not handle well with this tiny packtes**, so both the options usually don't work;
 
 - `sudo nmap -D RND:[number of IPs] [target]` more focused in hidden your IP, the target IDS will report multiple IP addresses that scan them. RND generate random IPs, to best effect you can pass manually the IPs with `sudo nmap -D [Ip1,Ip2..,ME] [target]`alsu sopecifys the **ME** to use your IP too.
+
+## Security Evasion Nmap Options
+
+### Spoof
+
+- `sudo nmap -S [spoof ip] -Pn -e [target]` spoof your IP address - BUT **you don't get any result**, since will send to the spoof ip the results. -Pn is for assume all hosts are online, without ping. -e is for specify your network interface.
+
+## Timing template
+
+- `-T` the timing template are pre-made options in order to perfrom scan, it goes to 0 (paranoid) until 5 (inase). 0 And 1 (paranoid an dsneaky) are perfect for IDS evasion. But will take real more tiem to end the scan, so when you are scanning a lot of machines, is better think another aproach.
